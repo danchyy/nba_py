@@ -364,6 +364,7 @@ class PlayerTrackingStats:
     def overall(self):
         return _api_scrape(self.json, 0)
 
+
 class GameLog:
     _endpoint = 'leaguegamelog'
 
