@@ -8,7 +8,8 @@ except ImportError:
 class TestPlayerSpeedDistanceTracking:
 
     def test_overall(self):
-        speed = league.PlayerSpeedDistanceTracking(date_from='03/05/2016',
+        # default is SpeedDistance tracking
+        speed = league.PlayerTrackingStats(date_from='03/05/2016',
                                                    date_to='03/05/2016', season="2015-16")
         assert speed
         overall = speed.overall()
