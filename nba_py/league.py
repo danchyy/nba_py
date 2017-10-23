@@ -257,7 +257,7 @@ class PlayerStats:
         return _api_scrape(self.json, 0)
 
 
-class _PlayerTrackingStats:
+class PlayerTrackingStats:
     """
     Args:
         :league_id: ID for the league to look in (Default is 00)
@@ -294,12 +294,12 @@ class _PlayerTrackingStats:
         :json: Contains the full json dump to play around with
     """
     _endpoint = 'leaguedashptstats'
-    _pt_measure_type = ''
 
     def __init__(self,
                  league_id=constants.League.Default,
                  season_type=constants.SeasonType.Default,
                  player_or_team=constants.PlayerOrTeam.Default,
+                 pt_measure_type=constants.PtMeasureType.Default,
                  per_mode=constants.PerMode.Default,
                  season=constants.CURRENT_SEASON,
                  playoff_round=constants.PlayoffRound.Default,
@@ -330,7 +330,7 @@ class _PlayerTrackingStats:
 
         self.json = _get_json(endpoint=self._endpoint,
                               params={'LeagueID': league_id,
-                                      'PtMeasureType': self._pt_measure_type,
+                                      'PtMeasureType': pt_measure_type,
                                       'SeasonType': season_type,
                                       'PlayerOrTeam': player_or_team,
                                       'PerMode': per_mode,
@@ -363,16 +363,6 @@ class _PlayerTrackingStats:
 
     def overall(self):
         return _api_scrape(self.json, 0)
-
-
-class PlayerSpeedDistanceTracking(_PlayerTrackingStats):
-    """
-    Statistics that measure the distance covered and the average speed of all
-    movements (sprinting, jogging, standing, walking, backwards and forwards)
-    by a player while on the court.
-    """
-    _pt_measure_type = constants.PtMeasureType.SpeedDistance
-
 
 class GameLog:
     _endpoint = 'leaguegamelog'
