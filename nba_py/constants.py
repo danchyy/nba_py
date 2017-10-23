@@ -422,6 +422,18 @@ class MeasureType:
 
 class PtMeasureType:
     SpeedDistance = 'SpeedDistance'
+    Rebounding = 'Rebounding'
+    Possessions = 'Possessions'
+    CatchShoot = 'CatchShoot'
+    PullUpShot = 'PullUpShot'
+    Defense = 'Defense'
+    Drives = 'Drives'
+    Passing = 'Passing'
+    ElbowTouch = 'ElbowTouch'
+    PostTouch = 'PostTouch'
+    PaintTouch = 'PaintTouch'
+    Efficiency = 'Efficiency'
+    Default = SpeedDistance
 
 
 class GroupQuantity:
